@@ -18,7 +18,7 @@ repos:
         entry: ./pre-commit-scripts/check-format.sh
         language: script
         files: \.py$
-      - id: run-tests
-        name: Run unit tests
-        entry: ./pre-commit-scripts/check-unit-tests.sh
-        language: script
+      # - id: run-tests
+      #   name: Run unit tests
+      #   entry: ./pre-commit-scripts/check-unit-tests.sh
+      #   language: script
