@@ -9,7 +9,7 @@ from diagrams.aws.integration import SQS
 from diagrams.aws.general import Users
 
 # Create the diagram
-with Diagram("MySales Architecture", show=True, direction="TB"):
+with Diagram("AWS Architecture", show=True, direction="TB"):
 
     # Define users
     users = Users("End Users")

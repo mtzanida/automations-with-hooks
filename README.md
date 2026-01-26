@@ -48,7 +48,29 @@ automations-with-hooks/
 
 The `diagrams/` directory contains Python scripts that generate AWS architecture diagrams. These diagrams are automatically validated during pre-commit to ensure they can be generated without errors.
 
-To manually generate diagrams:
+### Manual Diagram Generation
 ```bash
 python3 diagrams/infrastructure_diagram.py
 ```
+
+### Auto-Generate from Terraform
+If you have Terraform code in your repository, diagrams can be auto-generated from your Terraform state:
+
+```bash
+# Initialize and apply Terraform first
+cd terraform
+terraform init
+terraform apply
+
+# Generate diagram from state
+cd ..
+python3 diagrams/auto_generate_from_terraform.py
+```
+
+The auto-generation script will:
+1. Parse your Terraform state (`terraform show -json`)
+2. Extract AWS resources (ECS, RDS, S3, etc.)
+3. Generate a diagram Python script
+4. Execute it to create the visual diagram
+
+This happens automatically during pre-commit when `.tf` files are modified.
