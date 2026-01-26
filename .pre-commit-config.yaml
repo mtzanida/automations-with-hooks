@@ -5,6 +5,10 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
+      - id: detect-aws-credentials
+        args: [--allow-missing-credentials]
+      - id: detect-private-key
+      - id: check-merge-conflict
 
   - repo: local
     hooks:
@@ -18,6 +22,11 @@ repos:
         entry: ./pre-commit-scripts/check-format.sh
         language: script
         files: \.py$
+      - id: validate-diagrams
+        name: Validate infrastructure diagrams
+        entry: ./pre-commit-scripts/check-diagrams.sh
+        language: script
+        files: diagrams/.*\.py$
       # - id: run-tests
       #   name: Run unit tests
       #   entry: ./pre-commit-scripts/check-unit-tests.sh
