@@ -27,6 +27,11 @@ repos:
         entry: ./pre-commit-scripts/check-diagrams.sh
         language: script
         files: diagrams/.*\.py$
+      - id: regenerate-diagrams-on-terraform-change
+        name: Regenerate diagrams when Terraform changes
+        entry: ./pre-commit-scripts/check-diagrams.sh
+        language: script
+        files: \.tf$
       # - id: run-tests
       #   name: Run unit tests
       #   entry: ./pre-commit-scripts/check-unit-tests.sh
